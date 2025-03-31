@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="font-['helvetica_now_display']">
+    <nav class="w-full flex item-center justify-between fixed top-0 left-0 px-5 py-3">
+        <h3 class="text-2xl my-auto text-blue-400">The Leather Vault</h3>
+        <% var isLogin = typeof isLogin !== "undefined" ? isLogin : true %>
+        <% if(isLogin){ %>
+            <div class="my-auto flex gap-6">
+                <a href="/shop" class="text-xl my-auto text-gray-600 hover:text-gray-800">Shop</a>
+                <a href="/users/account" class="text-xl my-auto text-gray-600 hover:text-gray-800">My Account</a>
+                <a href="/cart" class="text-xl my-auto text-gray-600 hover:text-gray-800">Cart</a>
+                <div class="bg-red-500 px-5 py-2 my-auto rounded-md ">
+    
+                    <a href="/users/logout" class="text-xl text-slate-50 hover:text-slate-100">Logout</a>
+                </div>
+            </div>
+        <% } %>
+    </nav>

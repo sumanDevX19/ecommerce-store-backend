@@ -1,0 +1,48 @@
+<%- include('./partials/adminheader') %>
+
+
+            <div class="min-h-screen flex flex-col">
+                <div class="container px-10 py-20 flex flex-grow">
+                    <div class="w-[25%] flex h-screen flex-col items-start">
+                        <div class="flex flex-col">
+                            <a class="block w-fit mb-2" href="/owners/allproducts">All Products</a>
+                            <a class="block w-fit mb-2" href="/owners/admin">Create new product</a>
+                        </div>
+                    </div>
+                    <main class="w-3/4 bg-white p-8 shadow ml-4">
+                        <h2 class="text-xl font-bold mb-4">All Product</h2>
+                        <div class="flex flex-wrap items-start gap-3">
+                            <% products.forEach(function(product){ %>
+                                <div class="w-60">
+                                    <div class="w-full h-52 flex items-center justify-center bg-[<%= product.bgcolor %>]">
+                                        <img class="h-[12rem]" src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                                            alt="">
+                                    </div>
+                                    <div
+                                        class="flex justify-between bg-[<%= product.panelcolor %>] items-center px-4 py-4 text-[<%= product.textcolor %>]">
+                                        <div>
+                                            <h3>
+                                                <%= product.name %>
+                                            </h3>
+                                            <div class="flex item-center gap-2">
+                                                <h4>₹ <%= product.price %></h4>
+                                                <% if(product.discount){ %>
+                                                    <span class="text-sm font-medium text-gray-500"> <%= product.discount %>%</span>
+                                                <% } %>
+            
+            
+            
+                                            </div>
+                                        </div>
+                                        <a class="w-7 h-7 flex items-center justify-center rounded-full bg-white" href="/owners/updateproduct/<%= product._id %>">
+    
+                                            <i class="ri-pencil-line text-black"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+                    </main>
+                </div>
+            </div>
+            <%- include('./partials/footer') %>

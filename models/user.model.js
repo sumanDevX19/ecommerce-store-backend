@@ -10,8 +10,9 @@ let userSchema = mongoose.Schema({
     cart: [{
         type:mongoose.Schema.Types.ObjectId,
         ref:'product',
+    
     }],
-    isAdmin : Boolean,
+
     orders:[
         {type:mongoose.Schema.Types.ObjectId, ref:'product'}
     ],

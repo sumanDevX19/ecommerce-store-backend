@@ -1,0 +1,58 @@
+<%- include('./partials/adminheader') %>
+
+    <% if(success.length>0){ %>
+        <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
+            <span class="inline-block mt-1 mb-1 text-white">
+                <%= success %>
+            </span>
+        </div>
+        <% } %>
+        <div class="flex">
+            <div class="w-[25%] flex h-screen flex-col items-start mt-20 ml-10">
+                <div class="flex flex-col">
+                    <a class="block w-fit mb-2" href="/owners/allproducts">All Products</a>
+                    <a class="block w-fit mb-2" href="/owners/admin">Create new product</a>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 mt-[100px] mx-20 rounded-lg shadow-md w-[75%] max-w-md">
+                <h1 class="text-2xl font-bold text-center mb-6">Update Product</h1>
+                <form action="/owners/update-product/<%= product._id %>" method="POST" enctype="multipart/form-data" class="space-y-4">
+                    <div class="flex flex-col">
+                        <label for="name" class="text-gray-700 font-medium">Name:</label>
+                        <input type="text" id="name" name="name" value="<%= product.name %>" 
+                            class="mt-1 p-2 border rounded-md w-full focus:ring focus:ring-blue-300">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="price" class="text-gray-700 font-medium">Price:</label>
+                        <input type="text" id="price" name="price" value="<%= product.price %>" 
+                            class="mt-1 p-2 border rounded-md w-full focus:ring focus:ring-blue-300">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="discount" class="text-gray-700 font-medium">Discount:</label>
+                        <input type="text" id="discount" name="discount" value="<%= product.discount %>" 
+                            class="mt-1 p-2 border rounded-md w-full focus:ring focus:ring-blue-300">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="bgcolor" class="text-gray-700 font-medium">Background Color:</label>
+                        <input type="text" id="bgcolor" name="bgcolor" value="<%= product.bgcolor %>" 
+                            class="mt-1 p-2 border rounded-md w-full focus:ring focus:ring-blue-300">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="panelcolor" class="text-gray-700 font-medium">Panel Color:</label>
+                        <input type="text" id="panelcolor" name="panelcolor" value="<%= product.panelcolor %>" 
+                            class="mt-1 p-2 border rounded-md w-full focus:ring focus:ring-blue-300">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="image" class="text-gray-700 font-medium">Product Image:</label>
+                        <input type="file" id="image" name="image" class="mt-1 p-2 border rounded-md w-full">
+                    </div>
+                    <button type="submit" 
+                        class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition">Update Product</button>
+                </form>
+                
+            </div>
+        </div>
+
+            
+<%- include('./partials/footer') %>
